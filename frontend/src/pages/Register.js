@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FaUser } from 'react-icons/fa'
+import { toast } from 'react-toastify'
 
 const Register = () => {
   const [formData, setFormData] = useState ({
@@ -18,6 +19,14 @@ const Register = () => {
     }))
   }
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    
+    if (password !== password2) {
+      toast.error('passwords do not match')
+    }
+  }
+
   return (
     <>
       <section className='heading'>
@@ -25,18 +34,18 @@ const Register = () => {
         <p>Please create an account</p>
       </section>
       <section className='form'>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='form-group'>
-            <input className='form-control' type='text' id='name' name='name' value={name} onChange={onChange} placeholder='name' />  
+            <input className='form-control' type='text' id='name' name='name' value={name} onChange={onChange} placeholder='name' required/>  
           </div>
           <div className='form-group'>
-            <input className='form-control' type='email' id='email' name='email' value={email} onChange={onChange} placeholder='email' />
+            <input className='form-control' type='email' id='email' name='email' value={email} onChange={onChange} placeholder='email' required />
           </div>
           <div className='form-group'>
-            <input className='form-control' type='password' id='password' name='password' value={password} onChange={onChange} placeholder='password' />
+            <input className='form-control' type='password' id='password' name='password' value={password} onChange={onChange} placeholder='password' required />
           </div>
           <div className='form-group'>
-            <input className='form-control' type='password' id='password2' name='password2' value={password2} onChange={onChange} placeholder='confirm password' />
+            <input className='form-control' type='password' id='password2' name='password2' value={password2} onChange={onChange} placeholder='confirm password' required />
           </div>
           <button className='btn btn-block'>Submit</button>
         </form>
