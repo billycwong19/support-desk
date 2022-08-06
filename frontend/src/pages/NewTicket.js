@@ -24,7 +24,7 @@ const NewTicket = () => {
         }
         if (isSuccess) {
             dispatch(reset())
-            navigate('/tickets')
+            navigate('/new-ticket')
         }
 
         dispatch(reset())
@@ -34,7 +34,7 @@ const NewTicket = () => {
         e.preventDefault()
 
         dispatch(createTicket({ product, description }))
-
+        navigate('/tickets')
     }
     if (isLoading) {
         return <Spinner />
