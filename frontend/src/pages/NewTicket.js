@@ -24,7 +24,7 @@ const NewTicket = () => {
         }
         if (isSuccess) {
             dispatch(reset())
-            navigate('/new-ticket')
+            navigate('/tickets')
         }
 
         dispatch(reset())
