@@ -1,3 +1,3 @@
 ## support desk MERN stack
 
-#### https://support-desk-wong.herokuapp.com/
+#### https://tech-support-desk.herokuapp.com
